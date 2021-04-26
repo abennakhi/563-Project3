@@ -251,7 +251,7 @@ void cache::run(unsigned num_entries)
 
 				//cout << "ENTERING EVICTION!!" << endl;
 				numEvic++;
-				int minAge = INT_MAX;
+				int minAge = 2147483647;
 				int blockEvicted;
 				for (int i = 0; i < cacheAss; i++)
 				{
@@ -339,7 +339,7 @@ void cache::print_tag_array()
 			{
 				if (theCache.blocks[i].entries[j].tag != 0)
 				{
-					cout << setfill(' ') << setw(7) << dec << j << setw(6) << setw(4 + tag_bits / 4) << "0x"
+					cout << setfill(' ') << setw(7) << dec << j << setw(6) << setw(tag_bits / 4) << "0x"
 						 << hex << theCache.blocks[i].entries[j].tag << endl;
 				}
 			}
@@ -357,7 +357,7 @@ void cache::print_tag_array()
 			{
 				if (theCache.blocks[i].entries[j].tag != 0)
 				{
-					cout << setfill(' ') << setw(7) << dec << j << setw(6) << theCache.blocks[i].entries[j].dirty_bit << setw(4 + tag_bits / 4)
+					cout << setfill(' ') << setw(7) << dec << j << setw(6) << theCache.blocks[i].entries[j].dirty_bit << setw(tag_bits / 4)
 						 << "0x" << hex << theCache.blocks[i].entries[j].tag << endl;
 				}
 			}
